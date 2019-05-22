@@ -3,6 +3,12 @@ import React from 'react'
 import tours from '!./tours'
 import data from '!./testData'
 import App from './components/App'
+import axios from 'axios'
 
-ReactDOM.render(<App />,document.getElementById('root'))
+axios.get('/api/contest')
+    .then(res=>
+        ReactDOM.render(<App initialContests={res.data.contests}/>,document.getElementById('root'))
+    
+     )
+
 

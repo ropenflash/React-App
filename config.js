@@ -6,7 +6,7 @@ module.exports={
                 url:"mongodb://localhost:27017",
                 port:env.PORT||8080,
                 host:env.HOST||'0.0.0.0',
-                get ServerUrl(){return `http:${this.host}:${this.port}` }
+                get serverUrl(){return `http://${this.host}:${this.port}` }
                },
                
    production:{

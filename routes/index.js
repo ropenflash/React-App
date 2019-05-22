@@ -6,15 +6,16 @@ import data from '../src/testData'
 
 // initiating Mongo
 db.init()
-
+import serverRender from '../serverRender'
 router.get('/',(req,res)=>{
-   
-    res.sendFile(path.resolve("views/index.html"))
+  serverRender().then(content=>res.render(path.resolve("views/index"),{content})).catch(console.error)
+    
     
 })
 
 router.route('/api/contests').get(async (req,res)=>{
-     var _db=await db.getDB()
+   try{ 
+        var _db=await db.getDB()
      var collection=_db.collection('contests')
      collection.find().toArray((err,docs)=>
      {
@@ -23,6 +24,17 @@ router.route('/api/contests').get(async (req,res)=>{
           res.send(docs)    
      }
      )
+
+    }
+    catch(err){
+        console.log('error from route index is : '+ err.message)
+    }
    })
+
+
+   router.route('/api/contest').get(async (req,res)=>{
+   res.send(data)
+    
+    })
 
 module.exports= router

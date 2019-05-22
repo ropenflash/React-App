@@ -6,29 +6,8 @@ const host=config.development.host
 const index=require("./routes")
 const sass=require("node-sass-middleware")
 const path=require("path")
-
-
-/////
-var clc = require("cli-color");
-var mapping = {
-    log: clc.white,
-    warn: clc.yellow,
-    error: clc.red
-};
-
-["log", "warn", "error"].forEach(function(method) {
-    var oldMethod = console[method].bind(console);
-    console[method] = function() {
-        oldMethod.apply(
-            console, [mapping[method](new Date().toISOString())]
-                .concat(arguments)
-        );
-    };
-});
-/////
-
-
-
+const dotenv=require('dotenv')
+dotenv.config()
 
 
 app.use(sass({
@@ -39,11 +18,12 @@ app.use(sass({
 }))
 
 app.use(express.static('public'))
+app.set('view engine','pug')
 
-import './serverRender'
+
 
 app.use('/',index)
 
-app.listen(port,()=>{
+app.listen(port,config.development.host,()=>{
     console.log('server is listening on '+ port)
 })

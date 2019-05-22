@@ -1,19 +1,18 @@
 import React from 'react'
 import ContestPreview from './ContestPreview'
-import axios from 'axios'
 class App extends React.Component{
     state={
-        contests:[]
+        contests:this.props.initialContests
         
     }
     
-    componentDidMount(){
-        axios.get('/api/contests')
-        .then(res=>
-         this.setState({contests:res.data})
+    // componentDidMount(){
+    //     axios.get('/api/contests')
+    //     .then(res=>
+    //      this.setState({contests:res.data})
         
-         )
-    }
+    //      )
+    // }
     
     render(){
      
