@@ -28,7 +28,6 @@
     "@babel/plugin-proposal-class-properties": "^7.4.4",
     "@babel/preset-env": "^7.4.4",
     "@babel/preset-react": "^7.0.0",
-    "@ropenflash/tiny": "^1.1.0",
     "babel-loader": "^8.0.6",
     "cli-color": "^1.4.0",
     "webpack": "^4.32.0",
