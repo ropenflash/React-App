@@ -1,0 +1,37 @@
+{
+  "name": "Front_End",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon --exec babel-node server.js --ignore public/",
+    "build": "webpack -wd"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "express": "^4.17.0",
+    "json-loader": "^0.5.7",
+    "mongodb": "^3.2.5",
+    "node-sass-middleware": "^0.11.0",
+    "nodemon": "^1.19.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.4.4",
+    "@babel/node": "^7.2.2",
+    "@babel/plugin-proposal-class-properties": "^7.4.4",
+    "@babel/preset-env": "^7.4.4",
+    "@babel/preset-react": "^7.0.0",
+    "@ropenflash/tiny": "^1.1.0",
+    "babel-loader": "^8.0.6",
+    "cli-color": "^1.4.0",
+    "webpack": "^4.32.0",
+    "webpack-cli": "^3.3.2"
+  }
+}
