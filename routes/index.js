@@ -32,9 +32,24 @@ router.route('/api/contests').get(async (req,res)=>{
    })
 
 
+   var contestsObj=data.contests.reduce((obj,contest)=>{
+        obj[contest.id]=contest
+        return obj
+    
+   },{})
+
    router.route('/api/contest').get(async (req,res)=>{
-   res.send(data)
+   res.send({contests:contestsObj})
     
     })
+
+
+    
+   router.route('/api/contest/:contestId').get(async (req,res)=>{
+     let contest=contestsObj[req.params.contestId]
+    contest.description='react app for practice'
+     res.send({contest})
+     
+     })
 
 module.exports= router

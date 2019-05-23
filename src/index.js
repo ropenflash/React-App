@@ -8,6 +8,7 @@ import axios from 'axios'
 axios.get('/api/contest')
     .then(res=>
         ReactDOM.render(<App initialContests={res.data.contests}/>,document.getElementById('root'))
+       
     
      )
 
